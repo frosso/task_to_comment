@@ -82,7 +82,7 @@ class FrossoTaskToCommentController extends ProjectController {
 
                 // copio i time records nel task principale
                 if ( $post['options']['timesheets'] == '1' ) {
-                    $merger_task_time_records = TimeRecords::find( array(
+                    $cloned_task_time_records = TimeRecords::find( array(
                         'conditions' => array(
                             'parent_type = ? AND parent_id = ?',
                             'Task',
@@ -90,12 +90,31 @@ class FrossoTaskToCommentController extends ProjectController {
                         )
                     ) );
 
-                    foreach ( $merger_task_time_records as $time_record ) {
-                        $copy_time_record = $time_record->copy();
-                        $copy_time_record->setParentId( $destination_task->getId() );
-                        $new_summary = $copy_time_record->getSummary() . " (from task " . $this->active_task->getName() . ")";
-                        $copy_time_record->setSummary( $new_summary );
-                        $copy_time_record->save();
+                    foreach ( $cloned_task_time_records as $time_record ) {
+                        $cloned_time_record = $time_record->copy();
+                        $cloned_time_record->setParentId( $destination_task->getId() );
+                        $new_summary = $cloned_time_record->getSummary() . " (from task " . $this->active_task->getName() . ")";
+                        $cloned_time_record->setSummary( $new_summary );
+                        $cloned_time_record->save();
+                    }
+                }
+
+                // copio i time records nel task principale
+                if ( $post['options']['child_comments'] == '1' ) {
+                    $task_comments = $this->active_task->comments()->get( $this->logged_user );
+                    foreach ( $task_comments as $comment ) {
+                        /** @var TaskComment $cloned_comment */
+                        $cloned_comment = $comment->copy();
+                        $cloned_comment->setParentId( $destination_task->getId() );
+
+                        // copy the body adding some information about the original task
+                        $new_body = $cloned_comment->getBody();
+                        $new_body = "<h2>Merged from task " . $this->active_task->getName() . "</h2><br />" . $new_body;
+                        $cloned_comment->setBody( $new_body );
+
+                        $cloned_comment->save();
+                        // clone comment attachments too
+                        $comment->attachments()->cloneTo( $cloned_comment );
                     }
                 }
 

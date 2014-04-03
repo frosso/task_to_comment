@@ -43,7 +43,9 @@
       <label for="option_to_trash">&nbsp;&nbsp;&nbsp;Sposta vecchio task nel cestino</label>
     {/wrap}
     {wrap field=options}
-      <label>Attenzione: I commenti contenuti qui sotto andranno perduti!</label>
+      <input type="hidden" id="_option_child_comments" name="options[child_comments]" value="0" />
+      <input type="checkbox" id="option_child_comments" name="options[child_comments]" value="1" class="auto input_checkbox" />
+      <label for="option_child_comments">&nbsp;&nbsp;&nbsp;Copy child comments too</label>
     {/wrap}
   </div>
 </div>
