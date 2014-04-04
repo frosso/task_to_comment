@@ -16,7 +16,7 @@ class FrossoTaskToCommentModule extends AngieModule {
     /*
      * Versione
      */
-    protected $version = '0.1.3';
+    protected $version = '0.1.4';
 
     /**
      * Name of the project object class (or classes) that this module uses
