@@ -8,4 +8,5 @@ Provides options to:
 * import attachments
 * import timesheet
 * import original task time creation
+* import original task comments
 * move task to trash
