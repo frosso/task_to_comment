@@ -16,7 +16,7 @@ class FrossoTaskToCommentModule extends AngieModule {
     /*
      * Versione
      */
-    protected $version = '0.1.3';
+    protected $version = '0.1.4';
 
     /**
      * Name of the project object class (or classes) that this module uses
@@ -36,7 +36,7 @@ class FrossoTaskToCommentModule extends AngieModule {
     function defineRoutes( ) {
 
         // Single task
-        // Servono perch� se viene salvato un task tra i preferiti, viene
+        // Servono perchè se viene salvato un task tra i preferiti, viene
         // caricata la view dei tasks di default, senza il responsabile
         Router::map( 'task_to_comment', 'projects/:project_slug/tasks/:task_id/to_comment', array(
             'controller' => 'frosso_task_to_comment',
