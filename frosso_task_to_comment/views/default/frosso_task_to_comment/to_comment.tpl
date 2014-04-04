@@ -2,7 +2,7 @@
 
 <div class="content_stack_element" >
     <div class="content_stack_element_info">
-     <h3>Seleziona il task su cui inserire il commento</h3>
+     <h3>Choose the task you want to insert the comment into</h3>
      </div>
     <div class="content_stack_element_body">
     {wrap field=main_task}
@@ -19,28 +19,28 @@
 
 <div class="content_stack_element" >
     <div class="content_stack_element_info">
-     <h3>Scegli opzioni aggiuntive:</h3>
+     <h3>Additional options:</h3>
      </div>
     <div class="content_stack_element_body">
     {wrap field=options}
       <input type="hidden" id="_option_timesheet" name="options[timesheets]" value="0" />
       <input type="checkbox" id="option_timesheet" name="options[timesheets]" value="1" class="auto input_checkbox" />
-      <label for="option_timesheet">&nbsp;&nbsp;&nbsp;Timesheets</label>
+      <label for="option_timesheet">&nbsp;&nbsp;&nbsp;Copy timesheets</label>
     {/wrap}
     {wrap field=options}
       <input type="hidden" id="_option_attachments" name="options[attachments]" value="0" />
-      <input type="checkbox" id="option_attachments" name="options[attachments]" value="1" class="auto input_checkbox" />
-      <label for="option_attachments">&nbsp;&nbsp;&nbsp;Copia gli allegati</label>
+      <input type="checkbox" id="option_attachments" name="options[attachments]" value="1" class="auto input_checkbox" checked />
+      <label for="option_attachments">&nbsp;&nbsp;&nbsp;Copy the attachments</label>
     {/wrap}
     {wrap field=options}
       <input type="hidden" id="_option_mantain_time" name="options[mantain_time]" value="0" />
-      <input type="checkbox" id="option_mantain_time" name="options[mantain_time]" value="1" class="auto input_checkbox" />
-      <label for="option_mantain_time">&nbsp;&nbsp;&nbsp;Copia l'ora di creazione nel nuovo commento</label>
+      <input type="checkbox" id="option_mantain_time" name="options[mantain_time]" value="1" class="auto input_checkbox" checked />
+      <label for="option_mantain_time">&nbsp;&nbsp;&nbsp;Keep comment creation date and time</label>
     {/wrap}
     {wrap field=options}
       <input type="hidden" id="_option_to_trash" name="options[to_trash]" value="0" />
       <input type="checkbox" id="option_to_trash" name="options[to_trash]" value="1" class="auto input_checkbox" />
-      <label for="option_to_trash">&nbsp;&nbsp;&nbsp;Sposta vecchio task nel cestino</label>
+      <label for="option_to_trash">&nbsp;&nbsp;&nbsp;Move the old Task in the trash</label>
     {/wrap}
     {wrap field=options}
       <input type="hidden" id="_option_child_comments" name="options[child_comments]" value="0" />
