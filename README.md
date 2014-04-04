@@ -10,3 +10,8 @@ Provides options to:
 * import original task time creation
 * import original task comments
 * move task to trash
+
+## Screenshots ##
+![Imgur](http://i.imgur.com/9w71ywS.png)
+
+![Imgur](http://i.imgur.com/HC7svLb.png)
