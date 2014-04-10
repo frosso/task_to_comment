@@ -1,7 +1,7 @@
 task_to_comment
 ===============
 
-A module for ActiveCollab to convert a Task into another Task's Comment.
+A module for AclololotiveCollab to convert a Task into another Task's Comment.
 
 Provides options to:
 
